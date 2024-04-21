@@ -1,0 +1,347 @@
+#lang racket
+
+
+;; Paradigma funcional
+; La salida sólo depende de la entrada y nada más
+; No tenemos variables (i, j) 
+; No podemos tener estados intermedios
+; No existen iteraciones
+; Las funciones puede recibir y/o retornar funciones (High Order Functions)
+
+
+;; TDA -> Capas, funciones con un objetivo
+; Constructor
+; Selector
+; Modificador
+; Validador
+; Otros
+
+
+;; Lisp = List Processor
+;; Lisp = Lost in a sea of parenthesis
+
+
+;; [ ] = listas
+;; LISP = todo es una lista, la lista se representa como: ( )
+;; LISP todo son funciones
+
+
+;; cons = fn para crear pares
+;; (cons "hola" "chao") = '("hola" . "chao")
+;; (cons 1 (cons 2 (cons 3 null))) = (list 1 2 3) = '(1 2 3)
+
+
+;; Acceso a elementos de una lista
+;; 2024 -> variable = ["hola", "chao"]
+;; 2024 -> quiero acceder al primer elemento = variable[0]
+;; 2024 -> quiero acceder al segundo elemento = variable[1]
+
+
+;; 1950s
+;; RAM -> CAR, CDR
+;; CAR = Content Address Register
+;; CDR = Content Decrement Register
+;; CAR -> accedo al primero elemento de la memoria (lista) -> retorna un elemento
+;; CDR -> accedo al resto de elementos en memoria (lista) -> retorna una lista
+
+
+
+
+; (car (cdr (list 1 2 3))) -> entrega el 2do
+; (car (cdr (cdr (list 1 2 3)))) -> entrega 3er elemento
+; (car (cdr (cdr (cdr (list 1 2 3 4))))) -> entrega 4to elemento
+
+
+;; formas de abreviarlo
+; (car (list 1 2 3))
+; (cadr (list 1 2 3))
+; (caddr (list 1 2 3))
+; (cadddr (list 1 2 3 4))
+
+
+;; Forma de programación: declarativa
+; nos concentramos en el QUE, no el COMO
+
+
+;; (first (list 1 2 3))
+;; (second (list 1 2 3))
+;; last : obtenemos el último elemento de la lista -> FORMA DECLARATIVA
+;; (last (list 1 2 3 4)) -> 4
+;; reverse -> da vuelta la lista -> FORMA DECLARATIVA
+;; obtener el último tambien puede ser: (car (reverse (list 1 2 3))) -> FORMA DECLARATIVA
+
+
+;; Funciones
+
+
+;;; Con lambda
+(define mi-funcion-1
+ (lambda (arg1 arg2)
+   (list arg1 arg2)))
+
+
+;; Llamando a la función
+(mi-funcion-1 "hola" "chao")
+(mi-funcion-1 (list 1 2 3) (list 4 5 6))
+(mi-funcion-1 (mi-funcion-1 "chao" (list 1 2 3)) "holi")
+
+
+;;; Sin lambda
+(define (mi-funcion-2 arg1 arg2)
+ (list arg1 arg2))
+
+
+(mi-funcion-2 "hola fn2" "chao fn2")
+;;python:  fn(1, **kwargs)  **kwargs
+
+
+;; dot operator -> operador punto
+;; builder es el nombre que yo le puse a la funcion
+;; make-lists, lists, etc, es un constructor de listas
+;; (builder 1 2 3 4 5 6 7 8 9 10 11)
+(define (builder . elementos) elementos)
+
+
+;; TDA Estudiante
+
+
+;; Estudiante = Nombre (str) X Curso (str)
+
+
+;; 1. Construir el estudiante (CAPA CONSTRUCTORA)
+
+
+;; DOM: Nombre (str) X Curso (str)
+;; REC: estudiante
+(define estudiante
+ (lambda (nombre curso)
+   (list nombre curso)))
+
+
+(define get-nombre-estudiante
+ (lambda (estudiante)
+   (car estudiante)))
+
+
+;; Main
+(estudiante "gonzalo" "paradigmas")
+(estudiante "javier" "paradigmas")
+(estudiante "joaquin" "paradigmas")
+(estudiante "rodrigo" "paradigmas")
+
+
+; no existen variables
+;e1 = ("gonzalo" "paradigmas")
+; sólo existen funciones
+(define e1 (estudiante "gonzalo M" "paradigmas"))
+e1
+(define e2 (estudiante "javier B" "paradigmas"))
+e2
+(define e3 (estudiante "joaquin P" "paradigmas"))
+e3
+(define e4 (estudiante "rodrigo P" "paradigmas"))
+e4
+
+
+;; TDA Curso
+;; Curso = nombreCurso (str) X List Estudiantes
+
+
+(define (curso nombre . estudiantes)
+ (list nombre estudiantes))
+
+
+(define c1 (curso "paradigmas" e1 e2 e3 e4))
+c1
+
+
+;; Obtener nombre del curso
+;; CAPA SELECTORA -> GET
+
+
+(define get-nombre-curso
+ (lambda (curso)
+   (car curso)))
+
+
+(get-nombre-curso c1)
+
+
+(define get-alumnos-curso
+ (lambda (curso)
+   (cadr curso)))
+
+
+(get-alumnos-curso c1)
+
+
+;; CAPA MODIFICADORA (set)
+
+
+;; Curso = Nombre X List Estudiantes
+;; Quiero el nombre del curso de "paradigmas" a "Paradigmas de Programacion"
+
+
+;; Dom: Curso X nombre (str)
+;; Rec: Curso
+(define set-curso-nombre
+ (lambda (current-curso new-nombre)
+   (curso new-nombre
+          (get-alumnos-curso current-curso))))
+
+
+(define c2 (set-curso-nombre c1 "Paradigmas de Programacion"))
+c2
+
+
+;; LISTAS OK
+;; TDAs OK
+;; CONSTRUCTORES DE LISTAS OK
+
+
+;; Problema:
+;; Fn X List 1 2 3 = (+ x 1) (list 1 2 3) = (list 2 3 4)
+
+
+;; Solución: RECURSIÓN
+
+
+;; 1. Recursión natural
+
+
+;; (+ x 1) (list 1 2 3)
+;; 1 + rec (2)
+;; 1 + 2 + rec(3)
+
+
+;; sumar los n primeros numeros de una lista
+;; Recursion natural
+;; (list 1 2 3)
+
+
+; Python
+;;def sumatoria_natural_recursion(n):
+; if n == 1:
+;    return n
+; else:
+;   return n + sumatoria_natural_recursion(n - 1)
+
+
+; sumatoria de los primeros n numeros
+; Dom: number
+; Rec: number
+; Tipo de recursión: natural
+(define sum-natural
+ (lambda (n)
+   (cond [(eq? n 0) n]
+         [else (+ n (sum-natural (- n 1)))])))
+
+
+(sum-natural 4)
+
+
+
+
+;; Tipo de recursión: cola
+;; COPIAR Y PEGAR EL EJEMPLO DE LA PPT
+
+
+
+
+;; High Order Functions
+;; Funciones que aceptan funciones
+;; Funciones que retornan funciones
+
+
+
+
+;; 1. MAP
+;; (map fn lst) -> (lst fnXe1 fnXe2 fnXe3)
+;; (map (+ x 1) (list 1 2 3)) -> (list 2 3 4)
+
+
+
+
+;; FUNCIONES ANONIMAS
+
+
+(define sumar
+ (lambda (x)
+   (+ x 1)))
+
+
+(sumar 4)
+
+
+;; LAS SIGUIENTES FUNCIONES SON DECLARATIVAS
+;; función anonima es una función sin nombre
+;; (lambda (x) (+ x 1))
+
+
+;; (map (lambda (x) (+ x 1)) (list 1 2 3))
+
+
+
+
+;; map sirve para aplanar (flatten list) listas
+(map (lambda (e) (get-nombre-estudiante e)) (get-alumnos-curso c1))
+
+
+
+
+;; FILTER
+;; (filter pred lst)
+;; pred es una función que retorna true or false
+(filter (lambda (x) (> x 4)) (list 1 2 3 4 5 6))
+
+
+;; APPLY (en algunos lenguajes, se llama REDUCER)
+;; reduce toda una lista en terminos de una sola función
+(apply * (list 1 2 3 4 5))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+#lang racket
+
+; DOM = fn x lst
+; REC = lst
+; Recursion = Natural
+; (mi_map (lambda (x) (+ x 1)) (list 1 2 3)))
+(define mi_map_natural
+  (lambda (fn lst)
+    (cond
+      [(null? lst) null]
+      [else (cons (fn (car lst)) (mi_map_natural fn (cdr lst)))])))
+
+(mi_map_natural (lambda (x) (+ x 1)) (list 1 2 3))
+; '(2 3 4)
+
+; DOM = fn x lst x acc
+; REC = lst
+; Recursion = Cola
+;(mi_map_cola (lambda (x) (+ x 1)) (list 1 2 3))
+(define mi_map_cola
+  (lambda (fn lst acc)
+    (cond
+      [(null? lst) (reverse acc)]
+      [else (mi_map_cola fn (cdr lst) (cons (fn(car lst)) acc))])))
+
+(mi_map_cola (lambda (x) (+ x 1)) (list 1 2 3) null)
+; '(2 3 4)
+
