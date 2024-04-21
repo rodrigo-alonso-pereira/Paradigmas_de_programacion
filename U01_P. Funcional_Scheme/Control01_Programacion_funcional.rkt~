@@ -1,0 +1,49 @@
+#lang racket
+
+;; CONTROL 1_Paradigmas de Programacion
+; 1er. Semestre 2024
+; Ing. Ejec. Computacion e Informatica, USACH.
+
+#|
+1.-
+|#
+
+#|
+(30 pts) Pregunta II (Procure responder todos los ítems de esta pregunta en esta misma hoja (puede usar ambos lados)
+
+2.- Dentro del lenguaje racket existen distintas funciones para listas. Implementar las siguientes
+funciones:
+|#
+
+#|
+c) (5 pts) (filter-map flt proc lst) la que permite aplicar la función proc solo a aquellos
+elementos que cumplan con el filtro especificado a través de la función booleana flt.
+La lista resultante sólo contiene los elementos transformados de la lista de entrada
+que pasaron el filtro flt. Implementar esta función de manera completamente
+declarativa, sin hacer uso explícito de recursividad.
+|#
+
+#|
+d) (10 pts) (inclusive-range start end [step]) la cual permite generar una lista con
+valores comprendidos entre start y end, con diferencia step entre elementos. Dado
+que step es opcional, en caso de no incluirse se asume que su valor es 1.
+
+Ejemplos:
+> (inclusive-range 10 20)
+'(10 11 12 13 14 15 16 17 18 19 20)
+> (inclusive-range 20 40 2)
+'(20 22 24 26 28 30 32 34 36 38 40)
+|#
+
+(define inclusive-range
+  (lambda (start end . step)
+    (define inclusive-range-int
+      (lambda (start end step last acc)
+        (cond
+         [(if (= last end)
+             (reverse acc)
+             (inclusive-range-int start end step (+ last step) (cons (+ last step) acc)))])))
+    (inclusive-range-int start end (if (null? step) 1 (car step)) start (cons start null))))
+
+(inclusive-range 10 20)
+(inclusive-range 20 40 2)
