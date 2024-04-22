@@ -93,5 +93,5 @@
                 (fn (car lst) acc)
                 (mi_apply_cola fn (cdr lst) (fn (car lst) acc)))])))
 
-(mi_apply_cola * (list 1 2 3 4 5) 1)
+(mi_apply_cola + (list 1 2 3 4 5) 1)
 ; 120
