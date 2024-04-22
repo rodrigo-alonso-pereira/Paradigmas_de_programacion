@@ -191,7 +191,7 @@ c3
 ;; CAPA MODIFICADORA (set)
 
 ;; Curso = Nombre X List Estudiantes
-;; Quiero el nombre del curso de "paradigmas" a "Paradigmas de Programacion"
+;; Quiero cambiar el nombre del curso de "paradigmas" a "Paradigmas de Programacion"
 
 
 ;; Dom: Curso X nombre (str)
