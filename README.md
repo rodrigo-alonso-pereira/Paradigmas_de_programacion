@@ -7,8 +7,8 @@ Utilizar git para poder clonar el repositorio, o de plano descargarlo.
 
 ### Pre-requisitos 📋
 
-_Paradigma Funcional: Instalar previamente el IDE Dr racket V8.X_
-_Paradigma Logico: Instalar Prolog o usar version web_
+_- Paradigma Funcional: Instalar previamente el IDE Dr racket V8.X_
+_- Paradigma Logico: Instalar Prolog o usar version web_
 
 ## Contexto 💻
 Repositorio que contiene todo los codigos referentes a las 3 unidades vistas en la asignatura de Paradigmas de Programacion. 
