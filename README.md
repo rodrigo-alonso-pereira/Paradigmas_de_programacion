@@ -8,6 +8,7 @@ Utilizar git para poder clonar el repositorio, o de plano descargarlo.
 ### Pre-requisitos 📋
 
 _- Paradigma Funcional: Instalar previamente el IDE Dr racket V8.X_
+
 _- Paradigma Logico: Instalar Prolog o usar version web_
 
 ## Contexto 💻
