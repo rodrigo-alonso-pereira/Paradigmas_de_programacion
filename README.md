@@ -1,5 +1,5 @@
-# Paradigmas_de_programacion
-Repositorio de avances del curso de Paradigmas de Programacion, de la carrera Ing. Ejecucion en Computacion e Informatica, USACH.
+# Paradigmas de Programacion
+Repositorio de avances de la asignatura de Paradigmas de Programacion, de la carrera Ing. Ejecucion en Computacion e Informatica, USACH.
 
 ## Comenzando 🚀
 
