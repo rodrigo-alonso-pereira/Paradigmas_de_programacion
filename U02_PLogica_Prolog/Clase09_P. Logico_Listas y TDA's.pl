@@ -11,7 +11,7 @@ banda(rolling_stones).
 alumno(Id, Nombre, Promedio, [Id, Nombre, Promedio]) :-
     string(Nombre),  %la coma , es el AND.  y ; es OR
     number(Id),
-	Id >= 0.
+	Id >= 1.
 
 % TDA CURSO
 
@@ -98,14 +98,25 @@ alumno_set_promedio(AlumnoIn, NewPromedio, AlumnoOut) :-
 
 
 % CAR
-car([Primero | _], Primero).
+car([Primero | _], Primero). 
+% car([1, 2, 3], Primero).
+%s Primero = 1
+
 % CDR
 cdr([_| Resto], Resto).
+% cdr([1, 2, 3], Resto).
+%s Resto = [2, 3]
 
 %agregarElementoAlPrincipio([1,2,3], 4, [4,1,2,3]).
 %agregarElementoAlPrincipio(ListaIn, NewElemento, [NewElemento | ListaIn]).
 
 agregarElementoAlPrincipio(Lista, Elemento, [Elemento|Lista]).
+% agregarElementoAlPrincipio([1, 2, 3], "Hola", L2).
+%s L2 = ["Hola", 1, 2, 3]
+
+agregarElementoAlFinal(Lista, Elemento, [Lista|Elemento]).
+% agregarElementoAlFinal([1, 2, 3], "Hola", L2).
+%s L2 = [[1, 2, 3]|"Hola"]
 
 
 
