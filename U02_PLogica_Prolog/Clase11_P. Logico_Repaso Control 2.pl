@@ -25,6 +25,10 @@ pertenece(Elemento, [Elemento| _]).  % caso borde/caso base/IF
 pertenece(Elemento, [_| Resto]) :-  % ELSE -> RECURSION
     pertenece(Elemento, Resto).
 
+% Ej: Comparacion de un elemento en dos listas.
+%  pertenece(Numero, [1,2]),
+%  pertenece(Numero, [2,3]).
+%s Numero = 2
 
 % Ej,
 %  pertenece(X, [1,2,3,"Hola","holA",4,5,6]),
