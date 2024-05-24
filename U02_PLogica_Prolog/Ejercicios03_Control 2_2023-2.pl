@@ -110,6 +110,16 @@ playlistsCompatibles(Playlist1, Playlist2, ReproduccionesMinimas) :-
 d) (5 pts) Documente el código.
 */
 
+/*
+Consultas:
+playlist("Rock", "John", 100000, ["Stairway to Heaven", "Bohemian Rhapsody"], P1),
+popularPlaylist(P1),
+cancion("Stairway to Heaven", "Led Zeppelin", 2000000, C1),
+cancionEnPlaylist(C1,P1),
+playlist("Rock", "John", 100000, ["Yesterday", "Bohemian Rhapsody"], P2),
+cancion("Bohemian Rhapsody", "Queen", 3000000, C2),
+playlistsCompatibles(P1, P2, 2000000).
+*/
 
 
 
