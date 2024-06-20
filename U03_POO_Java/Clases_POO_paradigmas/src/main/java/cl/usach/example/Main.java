@@ -22,5 +22,11 @@ public class Main {
 
         //sout
         System.out.println("Esto es un shortcout");
+
+        Estudiante e1 = new Estudiante("Rodrigo", "16", false);
+        System.out.println(e1);
+        System.out.println(e1.getNombre());
+        System.out.println(e1.getNombre());
+        System.out.println(e1.getIsResfriado());
     }
 }
