@@ -19,5 +19,8 @@ public class Main {
         System.out.println(valor2);
         System.out.println(miNumero2);
         System.out.println(miOtroNUmero2);
+
+        //sout
+        System.out.println("Esto es un shortcout");
     }
 }
