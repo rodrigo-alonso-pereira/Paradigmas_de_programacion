@@ -33,6 +33,15 @@ public class Estudiante extends Persona {
         isVespertino = vespertino;
     }
 
+    //Polimorfismo de Metodo
+    public String print(String p1) {
+        return "Hola soy metodo print, me llego esto: " + p1;
+    }
+
+    public String print(String p1, String p2) {
+        return "Hola soy metodo print, me llego esto: " + p1 + " y " + p2;
+    }
+
     @Override
     public String toString() {
         return "Estudiante{" +

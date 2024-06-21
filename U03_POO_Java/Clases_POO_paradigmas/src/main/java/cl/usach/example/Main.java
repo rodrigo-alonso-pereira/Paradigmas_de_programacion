@@ -43,5 +43,8 @@ public class Main {
         System.out.println(e2.getNombre());
         //e3 expone metodos de persona y estudiante
         System.out.println(e3.isVespertino());
+
+        System.out.println(e3.print("Print con 1 parametro"));
+        System.out.println(e3.print("Print con 1 parametro", "2do parametro"));
     }
 }
