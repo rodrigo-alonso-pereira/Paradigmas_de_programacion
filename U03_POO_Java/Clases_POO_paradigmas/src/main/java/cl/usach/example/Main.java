@@ -1,5 +1,7 @@
 package cl.usach.example;
 
+import cl.usach.example.herencia.Estudiante;
+
 public class Main {
 
     public static void main(String[] args) {

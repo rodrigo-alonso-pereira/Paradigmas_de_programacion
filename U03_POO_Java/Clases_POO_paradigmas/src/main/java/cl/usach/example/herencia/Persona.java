@@ -1,15 +1,13 @@
-package cl.usach.example;
+package cl.usach.example.herencia;
 
-public class Profesor {
+public class Persona {
 
     String rut;
     String nombre;
-    boolean isFullTime;
 
-    public Profesor(String rut, String nombre, boolean isFullTime) {
+    public Persona(String rut, String nombre) {
         this.rut = rut;
         this.nombre = nombre;
-        this.isFullTime = isFullTime;
     }
 
     public String getRut() {
@@ -26,13 +24,5 @@ public class Profesor {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public boolean isFullTime() {
-        return isFullTime;
-    }
-
-    public void setFullTime(boolean fullTime) {
-        isFullTime = fullTime;
     }
 }
