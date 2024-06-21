@@ -16,4 +16,5 @@ public class Profesor extends Persona {
     public void setFullTime(boolean fullTime) {
         isFullTime = fullTime;
     }
+    
 }

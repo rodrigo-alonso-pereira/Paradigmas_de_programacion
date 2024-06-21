@@ -9,10 +9,20 @@ public class Estudiante extends Persona {
      */
 
     boolean isVespertino;
+    boolean isResfriado;
 
-    public Estudiante(String rut, String nombre, boolean isVespertino) {
+    public Estudiante(String rut, String nombre, boolean isVespertino, boolean isResfriado) {
         super(rut, nombre); //Copia all de la superclase
         this.isVespertino = isVespertino;
+        this.isResfriado = isResfriado;
+    }
+
+    public boolean isResfriado() {
+        return isResfriado;
+    }
+
+    public void setNoResfriado() {
+        isResfriado = false;
     }
 
     public boolean isVespertino() {
@@ -21,5 +31,15 @@ public class Estudiante extends Persona {
 
     public void setVespertino(boolean vespertino) {
         isVespertino = vespertino;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "isVespertino=" + isVespertino +
+                ", isResfriado=" + isResfriado +
+                ", rut='" + rut + '\'' +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 }
