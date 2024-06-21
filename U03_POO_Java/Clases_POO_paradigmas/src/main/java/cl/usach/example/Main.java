@@ -28,5 +28,8 @@ public class Main {
         System.out.println(e1.getNombre());
         System.out.println(e1.getNombre());
         System.out.println(e1.getIsResfriado());
+        e1.setNoResfriado();
+        System.out.println(e1.getIsResfriado());
+        System.out.println(e1.toString());
     }
 }

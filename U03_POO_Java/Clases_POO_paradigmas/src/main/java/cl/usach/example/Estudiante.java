@@ -9,7 +9,7 @@ public class Estudiante {
     Estudiante(String nombre, String rut, boolean isResfriado) {
         this.nombre = nombre;
         this.rut = rut;
-        this.isResfriado = isResfriado;
+        this.isResfriado = true;
     }
 
     public String getNombre() {
@@ -22,5 +22,18 @@ public class Estudiante {
 
     public boolean getIsResfriado() {
         return isResfriado;
+    }
+
+    public void setNoResfriado() {
+        this.isResfriado = false;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "nombre='" + nombre + '\'' +
+                ", rut='" + rut + '\'' +
+                ", isResfriado=" + isResfriado +
+                '}';
     }
 }
