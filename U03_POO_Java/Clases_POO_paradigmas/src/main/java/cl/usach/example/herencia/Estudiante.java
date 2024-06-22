@@ -12,7 +12,7 @@ public class Estudiante extends Persona {
     boolean isResfriado;
 
     public Estudiante(String rut, String nombre, boolean isVespertino, boolean isResfriado) {
-        super(rut, nombre); //Copia all de la superclase
+        super(rut, nombre); //Realiza la copia de la superclase
         this.isVespertino = isVespertino;
         this.isResfriado = isResfriado;
     }
@@ -33,12 +33,12 @@ public class Estudiante extends Persona {
         isVespertino = vespertino;
     }
 
-    //Polimorfismo de Metodo
+    //Polimorfismo de Metodo (sobrecarga de metodos)
     public String print(String p1) {
         return "Hola soy metodo print, me llego esto: " + p1;
     }
 
-    public String print(String p1, String p2) {
+    public String print(String p1, int p2) {
         return "Hola soy metodo print, me llego esto: " + p1 + " y " + p2;
     }
 

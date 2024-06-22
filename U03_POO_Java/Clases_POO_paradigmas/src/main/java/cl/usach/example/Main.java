@@ -2,6 +2,7 @@ package cl.usach.example;
 
 import cl.usach.example.herencia.Estudiante;
 import cl.usach.example.herencia.Persona;
+import cl.usach.example.herencia.Profesor;
 
 public class Main {
 
@@ -45,6 +46,10 @@ public class Main {
         System.out.println(e3.isVespertino());
 
         System.out.println(e3.print("Print con 1 parametro"));
-        System.out.println(e3.print("Print con 1 parametro", "2do parametro"));
+        System.out.println(e3.print("Print con 1 parametro", 2));
+
+        Profesor p1 = new Profesor("10", "Gonzalo", true);
+        p1.setRut("999");
+        System.out.println(p1.getRut());
     }
 }

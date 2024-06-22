@@ -16,5 +16,11 @@ public class Profesor extends Persona {
     public void setFullTime(boolean fullTime) {
         isFullTime = fullTime;
     }
+
+    //Sobrescritura de metodos
+    @Override
+    public void setRut(String rut) {
+        this.rut = rut.concat("-RUT CHILE");
+    }
     
 }
