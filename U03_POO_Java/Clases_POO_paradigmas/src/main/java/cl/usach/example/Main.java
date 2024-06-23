@@ -1,5 +1,8 @@
 package cl.usach.example;
 
+import cl.usach.example.Interface.Animal;
+import cl.usach.example.Interface.Gato;
+import cl.usach.example.Interface.Perro;
 import cl.usach.example.herencia.Estudiante;
 import cl.usach.example.herencia.Persona;
 import cl.usach.example.herencia.Profesor;
@@ -51,5 +54,11 @@ public class Main {
         Profesor p1 = new Profesor("10", "Gonzalo", true);
         p1.setRut("999");
         System.out.println(p1.getRut());
+
+        Animal g1 = new Gato("Misifus", 9, "Gatitos #123");
+        g1.respirar(99);
+
+        Animal perro1 = new Perro();
+        perro1.respirar(100);
     }
 }
