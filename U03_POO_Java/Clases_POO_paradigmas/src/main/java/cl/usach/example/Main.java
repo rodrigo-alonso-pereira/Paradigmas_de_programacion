@@ -82,7 +82,7 @@ public class Main {
         //Polimorfismo nuevoAnimal tiene los metodos de AnimalAbstracto y Ardilla
 
         AnimalAbstracto nuevoAnimal = new Ardilla("Ardillita", "Arbol de la esquina");
-        //Puedo acceder a metodo de AnimalAbstracto
+        //Se puede acceder solo a metodo de AnimalAbstracto (Idem Herencia)
         nuevoAnimal.hacerRuido();
 
         Ardilla nuevoAnimal2 = new Ardilla("Ardilla Regordeta", "Arbol de al frente");
