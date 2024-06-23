@@ -3,9 +3,15 @@ package cl.usach.example;
 import cl.usach.example.Interface.Animal;
 import cl.usach.example.Interface.Gato;
 import cl.usach.example.Interface.Perro;
+import cl.usach.example.claseAbstracta.AnimalAbstracto;
+import cl.usach.example.claseAbstracta.Ardilla;
 import cl.usach.example.herencia.Estudiante;
 import cl.usach.example.herencia.Persona;
 import cl.usach.example.herencia.Profesor;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
 
@@ -60,5 +66,29 @@ public class Main {
 
         Animal perro1 = new Perro();
         perro1.respirar(100);
+
+        //Lista, una posible lista = ArrayList
+        //Se sugiere conmectarse a la interfaz, no a la implementacion.
+        //List (Interfaz)
+        //LinkedList y ArrayList son clases que implementan esta interfaz (List)
+        List<String> curso = new LinkedList<>();
+        curso.add("Rodrigo");
+        curso.add("Felipe");
+        curso.add("Eduardo");
+        curso.add("Miguel");
+        System.out.println(curso);
+
+        //Clase abstracta
+        //Polimorfismo nuevoAnimal tiene los metodos de AnimalAbstracto y Ardilla
+
+        AnimalAbstracto nuevoAnimal = new Ardilla("Ardillita", "Arbol de la esquina");
+        //Puedo acceder a metodo de AnimalAbstracto
+        nuevoAnimal.hacerRuido();
+
+        Ardilla nuevoAnimal2 = new Ardilla("Ardilla Regordeta", "Arbol de al frente");
+        //Se puede acceder a medoto de Ardilla y AnimalAbstracto
+        nuevoAnimal2.ardillaPilla();
+        nuevoAnimal2.hacerRuido();
+
     }
 }
