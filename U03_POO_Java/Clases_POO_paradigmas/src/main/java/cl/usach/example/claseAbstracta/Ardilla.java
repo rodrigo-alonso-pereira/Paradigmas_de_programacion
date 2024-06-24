@@ -13,6 +13,13 @@ public class Ardilla extends AnimalAbstracto {
 
     public void ardillaPilla(){
         System.out.println("Ardilla Pilla");
+        comer();
+    }
+
+    //Modificador de acceso protected
+    //Solo es accesible por las clases que estas definidas por la misma carpeta (Package)
+    protected void comer(){
+        System.out.println("Ardilla Pilla come avellanas");
     }
 
 
